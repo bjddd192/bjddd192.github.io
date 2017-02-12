@@ -13,22 +13,83 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+
+
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+title: 阳磊
+subtitle: "let's face reality，loyalty to an ideal !"
+description: "哈哈哈"
+keywords: 阳磊
+favicon: /favicon.ico
+timezone: Asia/Shanghai
+encoding: "utf-8"
+source_code: https://github.com/bjddd192/bjddd192.github.io
+side_bar_repo_limit: 5
 
-# Build settings
+
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: 阳磊
+organization: Belle
+organization_url: http://www.wonhigh.cn/
+location: Shen Zhen, China
+email: bjddd192@163.com
+
+# ---------------- #
+#      Socials     #
+# ---------------- #
+twitter_username: bjddd192
+github_username:  bjddd192
+facebook_username: gaohaoyang.water
+email: gaohaoyang126@126.com
+weibo_username: 3115521wh
+zhihu_username: gaohaoyang
+linkedIn_username: gaohaoyang
+dribbble_username:
+
+
+# ---------------- #
+#     comments     #
+# ---------------- #
+# two ways to comment, only choose one, and use your own short name
+# 两种评论插件，选一个就好了，使用自己的 short_name
+duoshuo_shortname: hygblog
+disqus_shortname: #gaohaoyang
+
+
+# statistic analysis 统计代码
+# 百度统计 id，将统计代码替换为自己的百度统计id，即
+# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
+# xxxxx字符串
+baidu_tongji_id: cf8506e0ef223e57ff6239944e5d46a4
+google_analytics_id: UA-72449510-4 # google 分析追踪id
+
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
 markdown: kramdown
-theme: minima
-gems:
-  - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  
+
+# port
+# port: 1234
+
+  
+# url
+category_dir: category/
+tag_dir: tag/
+
+# excerpt
+excerpt_separator: "\n\n\n\n"
+
+# paginate
+gems: [jekyll-paginate]
+paginate: 6
