@@ -77,10 +77,7 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
-  # syntax_highlighter: rouge
-gems:
-    - rouge
-    - jekyll-paginate
+gems: [jekyll-paginate]
   
 
 # port
