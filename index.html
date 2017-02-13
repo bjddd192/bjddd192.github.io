@@ -4,8 +4,22 @@ layout: default
 
 <div class="page clearfix" index>
     <div class="left">
-        <h1>Welcome to HyG's Blog!</h1>
-        <small>这里记录着我的前端学习之路</small>
+        <h1>let's face reality,loyalty to an ideal</h1>
+		<br>
+		<div class="collection-info">
+			<span class="meta-info mobile-hidden">
+				<span class="octicon octicon-location"></span>
+				{{ site.location }}
+			</span>
+			<span class="meta-info">
+				<span class="octicon octicon-organization"></span>
+				<a href="{{ site.organization_url }}" target="_blank">{{ site.organization }}</a>
+			</span>
+			 <span class="meta-info">
+				<span class="octicon octicon-mark-github"></span>
+				<a href="https://github.com/{{ site.github_username }}" target="_blank">{{ site.github_username }}</a>
+			</span>
+		</div>
         <hr>
         <ul>
             {% for post in paginator.posts %}
@@ -71,7 +85,7 @@ layout: default
             <div class="side">
                 <div>
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    Recent Posts
+                    最新发布
                 </div>
                 <ul class="content-ul" recent>
                     {% for post in site.posts offset: 0 limit: 10  %}
@@ -84,7 +98,7 @@ layout: default
             <div class="side ">
                 <div>
                     <i class="fa fa-th-list"></i>
-                    Categories
+                    分类
                 </div>
                 <ul class="content-ul" cate>
                     {% for category in site.categories %}
@@ -103,7 +117,7 @@ layout: default
             <div class="side">
                 <div>
                     <i class="fa fa-tags"></i>
-                    Tags
+                    标签
                 </div>
                 <div class="tags-cloud">
                     {% assign first = site.tags.first %}

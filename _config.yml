@@ -20,10 +20,10 @@
 # ---------------- #
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-title: 阳磊
+title: ん乖乖龙ん
 subtitle: "let's face reality，loyalty to an ideal !"
-description: "哈哈哈"
-keywords: 阳磊
+description: "欢迎来到 ん乖乖龙ん 的个人博客"
+keywords: bjddd192 ん乖乖龙ん
 favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
@@ -35,7 +35,7 @@ side_bar_repo_limit: 5
 #      Author      #
 # ---------------- #
 author: 阳磊
-organization: Belle
+organization: Wonhigh
 organization_url: http://www.wonhigh.cn/
 location: Shen Zhen, China
 email: bjddd192@163.com
@@ -94,3 +94,4 @@ tag_dir: tag/
 excerpt_separator: "\n\n\n\n"
 # 指定一页有几篇文章
 paginate: 6
+
