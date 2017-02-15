@@ -28,7 +28,7 @@ favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
 source_code: https://github.com/bjddd192/bjddd192.github.io
-side_bar_repo_limit: 5
+description_footer: Copyright©2005-2017 ん乖乖龙ん 版权所有 ! 
 
 
 # ---------------- #
@@ -40,17 +40,18 @@ organization_url: http://www.wonhigh.cn/
 location: Shen Zhen, China
 email: bjddd192@163.com
 
+
 # ---------------- #
 #      Socials     #
 # ---------------- #
-twitter_username: bjddd192
-github_username:  bjddd192
-facebook_username: gaohaoyang.water
 email: gaohaoyang126@126.com
-weibo_username: 3115521wh
-zhihu_username: gaohaoyang
-linkedIn_username: gaohaoyang
-dribbble_username:
+github_username:  bjddd192
+# twitter_username: bjddd192
+# facebook_username: bjddd192
+# weibo_username: bjddd192
+# zhihu_username: bjddd192
+# linkedIn_username: bjddd192
+# dribbble_username: bjddd192
 
 
 # ---------------- #
@@ -58,16 +59,16 @@ dribbble_username:
 # ---------------- #
 # two ways to comment, only choose one, and use your own short name
 # 两种评论插件，选一个就好了，使用自己的 short_name
-duoshuo_shortname: hygblog
-disqus_shortname: #gaohaoyang
+duoshuo_shortname: bjddd192
+# disqus_shortname: #bjddd192
 
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
 # hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
 # xxxxx字符串
-baidu_tongji_id: cf8506e0ef223e57ff6239944e5d46a4
-google_analytics_id: UA-72449510-4 # google 分析追踪id
+baidu_tongji_id: 7111a652168a6f6116ab85bbb9e426cc
+google_analytics_id: UA-92003445-1
 
 
 # ---------------- #
