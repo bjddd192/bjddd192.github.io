@@ -9,6 +9,10 @@ type: page
 * content
 {:toc}
 
+## 博客
+
+* [廖雪峰的官方网站](http://www.liaoxuefeng.com/)
+
 ## 工具
 
 * [box-shadow generator](http://www.cssmatic.com/box-shadow)
