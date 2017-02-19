@@ -87,7 +87,7 @@ weave-net-9rr8v                         2/2       Running   0          4d       
 #### 配置文件
 最后，分享一下我的配置文件供参考，我的镜像均来自谷歌的 [Docker Registry](https://console.cloud.google.com/kubernetes/images/list?location=GLOBAL&project=google-containers&authuser=0)
 
-##### 1.elasticsearch-service.yaml
+##### elasticsearch-service.yaml
 
 ``` yaml
 apiVersion: v1
@@ -110,7 +110,7 @@ spec:
     k8s-app: elasticsearch-logging
 ```
 
-##### 2.elasticsearch-rc.yaml
+##### elasticsearch-rc.yaml
 
 ``` yaml
 apiVersion: v1
@@ -165,7 +165,7 @@ spec:
           path: /home/docker/elasticsearch/data
 ```
 
-##### 3.fluentd-daemonset.yaml
+##### fluentd-daemonset.yaml
 
 ``` yaml
 apiVersion: extensions/v1beta1
@@ -221,7 +221,7 @@ spec:
           path: /home/docker_mnt/containers
 ```
 
-##### 4.kibana-service.yaml
+##### kibana-service.yaml
 
 ``` yaml
 apiVersion: v1
@@ -244,7 +244,7 @@ spec:
     k8s-app: elasticsearch-kibana
 ```
 
-##### 5.kibana-rc.yaml
+##### kibana-rc.yaml
 
 ``` yaml
 apiVersion: v1
