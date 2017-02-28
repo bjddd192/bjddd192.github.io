@@ -300,7 +300,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 我们打开浏览器，输入虚拟机的 IP 地址，我这里是 http://192.168.99.100/，发现可以正常访问到 nginx 的欢迎界面。
 
-这里要**注意**一下： docker 容器是在 VirtualBox 的虚拟机里面，不是在 Windows 里面，所以不能用 127.0.0.1 访问。
+**注意： docker 容器是在 VirtualBox 的虚拟机里面，不是在 Windows 里面，所以不能用 127.0.0.1 访问。**
 
 #### 更换 docker 虚拟机文件存储
 
@@ -337,7 +337,7 @@ Started machines may have new IP addresses. You may need to re-run the `docker-m
 
 确保使用新磁盘的虚拟机没有问题后，就可以把C盘那个disk文件删除了。
 
-<font color=#0099ff size=5 face="黑体">**注意**</font>：不能在 Window 中直接去复制粘贴 disk 文件，否则在添加硬盘时会报错的，所以一定要在 VirtualBox 中去复制！
+**注意：不能在 Window 中直接去复制粘贴 disk 文件，否则在添加硬盘时会报错的，所以一定要在 VirtualBox 中去复制！**
 
 ### 参考资料
 
