@@ -31,7 +31,7 @@ type: page
 
 ## 友情链接
 
-[漠然](https://mritd.me/) \| [漠然](https://mritd.me/)
+[漠然](https://mritd.me/) \| [墨可](https://silencesk.github.io/)
 
 ## 评论
 
