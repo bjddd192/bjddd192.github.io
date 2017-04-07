@@ -1,0 +1,3 @@
+pause
+
+jekyll s --watch
