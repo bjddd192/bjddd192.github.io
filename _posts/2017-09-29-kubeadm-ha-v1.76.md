@@ -81,7 +81,7 @@ CentOS Linux release 7.2.1511 (Core)
 
 由于本人非网络运维人员，无法接触到路由器，因此自己准备了一个容器版的域名解析路由器，安装步骤很简单，请参考：[dnsmasq](https://hub.docker.com/r/andyshinn/dnsmasq/)。
 
-本人的域名解析服务器地址为：`172.20.32.132` ，本文中的 `http://down.belle.cn` `registry.eyd.com` `reg.blf1.org` 皆来源于本人自定义的域名服务。
+本人的域名解析服务器地址为：`172.20.32.132` ，本文中的 `down.belle.cn` `registry.eyd.com` `reg.blf1.org` 皆来源于本人自定义的域名服务。
 
 ---
 
@@ -1666,5 +1666,8 @@ spec:
 
 至此，kubernetes高可用集群成功部署。
 
+### 其他参考资料
 
+> * [kubernetes 1.7.3 + calico 多 Master](https://jicki.me/2017/08/08/kubernetes-1.7.3/)
+> * [k8s kubeadm部署高可用集群](http://www.cnblogs.com/caiwenhao/p/6196014.html)
 
