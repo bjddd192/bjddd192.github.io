@@ -150,7 +150,7 @@ if trailing_pathsep?(req.path_info)
 
 ``` ruby
 break if base == "/"
-+ path.force_encoding("UTF-8") #增加此句
++ base.force_encoding("UTF-8") #增加此句
 break unless File.directory?(File.expand_path(res.filename + base))
 ```
 
