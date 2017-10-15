@@ -149,9 +149,9 @@ if trailing_pathsep?(req.path_info)
 ```
 
 ``` ruby
-path = req.path_info.dup.force_encoding(Encoding.find("filesystem"))
+break if base == "/"
 + path.force_encoding("UTF-8") #增加此句
-if trailing_pathsep?(req.path_info)
+break unless File.directory?(File.expand_path(res.filename + base))
 ```
 
 然后 cmd 到你的博客根目录，执行热部署命令：
