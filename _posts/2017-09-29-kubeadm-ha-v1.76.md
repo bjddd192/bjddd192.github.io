@@ -2,7 +2,7 @@
 layout: post
 title: kubeadm-ha-v1.76
 date: 2017-09-29 10:41:30 +0800
-description: kubeadm的kubernetes高可用集群v.176部署 
+description: kubeadm的kubernetes高可用集群v1.76部署 
 categories: kubernetes
 tags: kubeadm-ha
 keywords: kubernetes kubeadm v.176
@@ -1671,3 +1671,6 @@ spec:
 > * [kubernetes 1.7.3 + calico 多 Master](https://jicki.me/2017/08/08/kubernetes-1.7.3/)
 > * [k8s kubeadm部署高可用集群](http://www.cnblogs.com/caiwenhao/p/6196014.html)
 
+---
+
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
