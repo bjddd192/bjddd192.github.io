@@ -522,7 +522,7 @@ $ yum install kubernetes-cni-0.5.1-0.x86_64
 ```sh
 $ sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
-$ systemctl daemon-reload && systemctl restart 
+$ systemctl daemon-reload && systemctl restart kubelet
 
 # 查看kubelet service的日志
 $ journalctl -t kubelet -f 
@@ -884,6 +884,10 @@ sed -i 's/NodeRestriction,//g' /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
 
 在master1上设置kubectl的环境变量`KUBECONFIG`：
+
+<div style="color:red;">
+  以下这一步很重要，本人在虚拟机上全新安装时遇到执行完初始化以后用 kubectl get nodes 报错说连不上 api，查看集群信息 kubectl cluster-info 显示 api 地址为 http://localhost:8080 ，开始以为是网络 cni 的问题，后来才发现是没有生效下面的环境变量，取的安装自带的配置而不是 kubeadm 初始化生成的配置导致。
+</div>
 
 ```sh
 echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bashrc
@@ -1661,15 +1665,39 @@ spec:
   selector:
     name: nginx
 ```
+---
+
+### 其他有用资料
+
+#### 限制上外网
+
+设置 ipMasq 参数，备忘，有需要再验证。
+
+docker：--ip-masq=false
+
+cni：
+
+cni-conf.json: |
+    {
+      "name": "cbr0",
+      "type": "flannel",
+      "ipMasq": false,
+      "delegate": {
+        "isDefaultGateway": true
+      }
+    }
+    
+[Kubeadm部署k8s](http://www.winseliu.com/blog/2017/08/13/kubeadm-install-k8s-on-centos7-with-resources/)
 
 ---
 
 至此，kubernetes高可用集群成功部署。
 
-### 其他参考资料
+### 参考资料
 
-> * [kubernetes 1.7.3 + calico 多 Master](https://jicki.me/2017/08/08/kubernetes-1.7.3/)
-> * [k8s kubeadm部署高可用集群](http://www.cnblogs.com/caiwenhao/p/6196014.html)
+[kubernetes 1.7.3 + calico 多 Master](https://jicki.me/2017/08/08/kubernetes-1.7.3/)
+
+[k8s kubeadm部署高可用集群](http://www.cnblogs.com/caiwenhao/p/6196014.html)
 
 ---
 
