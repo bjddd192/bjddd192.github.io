@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "mysql-partition-range"
+title: "mysql5.6 范围分区表实战"
 date: "2017-12-16 22:25:45"
 description: mysql5.6 范围分区表实战
 categories: mysql
