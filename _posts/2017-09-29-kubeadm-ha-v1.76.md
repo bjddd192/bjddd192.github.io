@@ -794,6 +794,17 @@ kubeadm reset
 
 #### kubeadm初始化
 
+在master1上设置kubectl的环境变量`KUBECONFIG`：
+
+<div style="color:red;">
+  以下这一步很重要，本人在虚拟机上全新安装时遇到执行完初始化以后用 kubectl get nodes 报错说连不上 api，查看集群信息 kubectl cluster-info 显示 api 地址为 http://localhost:8080 ，开始以为是网络 cni 的问题，后来才发现是没有生效下面的环境变量，取的安装自带的配置而不是 kubeadm 初始化生成的配置导致。
+</div>
+
+```sh
+echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bashrc
+source ~/.bashrc
+```
+
 这里使用配置文件的高级方式初始化master，更多资料可以参考：[config-file](https://kubernetes.io/docs/admin/kubeadm/#config-file)
 
 ```sh
@@ -881,17 +892,6 @@ $ rm -rf /root/kubeadm-init-v1.7.6.yaml
 ``` sh
 sed -i 's/Initializers,//g' /etc/kubernetes/manifests/kube-apiserver.yaml
 sed -i 's/NodeRestriction,//g' /etc/kubernetes/manifests/kube-apiserver.yaml  
-```
-
-在master1上设置kubectl的环境变量`KUBECONFIG`：
-
-<div style="color:red;">
-  以下这一步很重要，本人在虚拟机上全新安装时遇到执行完初始化以后用 kubectl get nodes 报错说连不上 api，查看集群信息 kubectl cluster-info 显示 api 地址为 http://localhost:8080 ，开始以为是网络 cni 的问题，后来才发现是没有生效下面的环境变量，取的安装自带的配置而不是 kubeadm 初始化生成的配置导致。
-</div>
-
-```sh
-echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bashrc
-source ~/.bashrc
 ```
 
 在master1上重启docker kubelet服务
