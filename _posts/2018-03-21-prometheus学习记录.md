@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "rometheus学习记录"
+title: "Prometheus学习记录"
 date: "2018-03-21 08:41:29"
 description: 记录Prometheus预研过程
 categories: kubernetes
