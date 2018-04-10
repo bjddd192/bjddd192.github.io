@@ -202,15 +202,15 @@ docker stop prometheus
 
 docker rm -f prometheus
 
-docker run --name prometheus -d -p 9090:9090 --restart=always \
-  -v /home/docker/prometheus/prometheus-data:/prometheus-data \
+docker run -u root --name prometheus -d -p 9090:9090 --restart=always \
+  -v /home/docker/prometheus/prometheus-data:/prometheus \
   -v /home/docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
   prom/prometheus:v2.2.1
 ```
 
-#### docker 安装 mysqld_exporter
+#### docker 安装 mysqld-exporter
 
-[mysqld_exporter官网](https://github.com/prometheus/mysqld_exporter)
+[mysqld-exporter官网](https://hub.docker.com/r/prom/mysqld-exporter/)
 
 主要用于收集mysql服务器的监控数据。
 
@@ -228,12 +228,12 @@ grant insert on db_monitor.accesslog to 'exporter'@'%';
 启动mysqld-exporter容器：
 
 ```sh 
-docker run --name mysqld_exporter -d -p 9104:9104 --restart=always \
+docker run --name mysqld-exporter -d -p 9104:9104 --restart=always \
   -e DATA_SOURCE_NAME="exporter:exporter@(172.20.32.37:3306)/mysql" \
   prom/mysqld-exporter
   
 # 查看容器日志，确定容器正常运行
-docker logs -f mysqld_exporter
+docker logs -f mysqld-exporter
 ```
 
 此时访问`http://192.168.200.142:9104/`，就可以看到exporter导出的数据了：
@@ -301,6 +301,82 @@ docker run --name prometheus -d -p 9090:9090 \
 
 ![Targets](/assets/2018-03-21-Prometheus学习记录/targets.png)
 
+#### docker 安装 node-exporter
+
+[node-exporter](https://hub.docker.com/r/prom/node-exporter/)
+
+主要用于收集服务器的基础监控数据（如CPU、内存、硬盘、网络）参数等。
+
+```sh
+docker run --name node-exporter -d -p 9100:9100 --net=host --restart=always \
+  prom/node-exporter:v0.15.2
+```
+
+访问`http://192.168.200.142:9100/`，就可以看到exporter导出的数据了。
+
+接下来，调整Prometheus的配置文件，增加对node-exporter数据的提取，调整后的`prometheus.yml`文件内容为：
+
+```yml
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          instance: prometheus
+
+  - job_name: 'mysql'
+    scrape_interval: 15s
+    static_configs:
+      - targets:
+        - '192.168.200.142:9104'
+        labels:
+          instance: db1
+          
+  - job_name: 'node'
+    scrape_interval: 15s
+    static_configs:
+      - targets:
+        - '172.20.32.38:9100'
+        labels:
+          instance: node1
+```
+
+重启prometheus容器：
+
+```sh
+docker stop prometheus
+
+docker rm -f prometheus
+
+docker run --name prometheus -d -p 9090:9090 \
+  -v /home/docker/prometheus/prometheus-data:/prometheus-data \
+  -v /home/docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+  prom/prometheus:v2.2.1
+```
+
+点击导航栏中的status->targets可以看到，node的exporter已经集成进来了。
+
 #### docker 安装 grafana
 
 ```sh
@@ -334,9 +410,269 @@ git clone https://github.com/percona/grafana-dashboards.git
 
 ![import_dashboard](/assets/2018-03-21-Prometheus学习记录/import-dashboard.png)
 
+Node-Exporter使用模版[Node Exporter Server Metrics](https://grafana.com/dashboards/405)即可。
+
+模版号：405、718
+
 最终看到监控界面的效果如下：
 
 ![final_effect](/assets/2018-03-21-Prometheus学习记录/final-effect.png)
+
+#### docker 安装 alertmanager
+
+```sh
+docker run --name alertmanager -d -p 9093:9093 --restart=always \
+  prom/alertmanager:v0.14.0
+
+mkdir -p /home/docker/alertmanager
+
+mkdir -p /home/docker/alertmanager/data
+
+# 获取默认配置文件以调整参数
+docker cp alertmanager:/etc/alertmanager/config.yml /home/docker/alertmanager/config.yml
+
+# 修改默认配置文件
+
+docker stop alertmanager
+
+docker rm -f alertmanager
+
+docker run --name alertmanager -d -p 9093:9093 --restart=always \
+  -v /home/docker/alertmanager/config.yml:/etc/alertmanager/config.yml \
+  -v /home/docker/alertmanager/data:/altermanager \
+  prom/alertmanager:v0.14.0 \
+  --config.file=/etc/alertmanager/config.yml \
+  --storage.path=/alertmanager \
+  --web.external-url="http://172.20.32.38:9093"
+  
+docker stop prometheus
+
+docker rm -f prometheus
+
+docker run --name prometheus -d -p 9090:9090 \
+  -v /home/docker/prometheus/prometheus-data:/prometheus-data \
+  -v /home/docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+  -v /home/docker/prometheus/alert.rules:/etc/prometheus/alert.rules \
+  prom/prometheus:v2.2.1
+```
+
+最终配置文件如下：
+
+config.yml 
+
+```yaml
+global:
+  # ResolveTimeout is the time after which an alert is declared resolved
+  # if it has not been updated.
+  resolve_timeout: 5m
+  # The smarthost and SMTP sender used for mail notifications.
+  smtp_smarthost: 'smtp.exmail.qq.com:25'
+  smtp_from: 'yang.lei@belle.com.cn'
+  smtp_auth_username: 'yang.lei@belle.com.cn'
+  smtp_auth_password: 'xxx'
+  smtp_require_tls: false
+
+# The directory from which notification templates are read.
+templates: 
+- '/etc/alertmanager/template/*.tmpl'
+
+# The root route on which each incoming alert enters.
+route:
+  # The labels by which incoming alerts are grouped together. For example,
+  # multiple alerts coming in for cluster=A and alertname=LatencyHigh would
+  # be batched into a single group.
+  group_by: ['alertname', 'cluster', 'service']
+
+  # When a new group of alerts is created by an incoming alert, wait at
+  # least 'group_wait' to send the initial notification.
+  # This way ensures that you get multiple alerts for the same group that start
+  # firing shortly after another are batched together on the first 
+  # notification.
+  # 分组等待时间
+  group_wait: 30s
+
+  # When the first notification was sent, wait 'group_interval' to send a batch
+  # of new alerts that started firing for that group.
+  # 分组的时间间隔
+  group_interval: 1m
+
+  # If an alert has successfully been sent, wait 'repeat_interval' to
+  # resend them.
+  # 重复报警的时间间隔
+  repeat_interval: 3m 
+
+  # A default receiver
+  # 发给定义的 receiver
+  receiver: team-X-mails
+
+  # All the above attributes are inherited by all child routes and can 
+  # overwritten on each.
+
+  # The child route trees.
+  routes:
+  # This routes performs a regular expression match on alert labels to
+  # catch alerts that are related to a list of services.
+  - match_re:
+      service: ^(foo1|foo2|baz)$
+    receiver: team-X-mails
+    # The service has a sub-route for critical alerts, any alerts
+    # that do not match, i.e. severity != critical, fall-back to the
+    # parent node and are sent to 'team-X-mails'
+    routes:
+    - match:
+        severity: critical
+      receiver: team-X-pager
+  - match:
+      service: files
+    receiver: team-Y-mails
+
+    routes:
+    - match:
+        severity: critical
+      receiver: team-Y-pager
+
+  # This route handles all alerts coming from a database service. If there's
+  # no team to handle it, it defaults to the DB team.
+  - match:
+      service: database
+    receiver: team-DB-pager
+    # Also group alerts by affected database.
+    group_by: [alertname, cluster, database]
+    routes:
+    - match:
+        owner: team-X
+      receiver: team-X-pager
+    - match:
+        owner: team-Y
+      receiver: team-Y-pager
+
+
+# Inhibition rules allow to mute a set of alerts given that another alert is
+# firing.
+# We use this to mute any warning-level notifications if the same alert is 
+# already critical.
+inhibit_rules:
+- source_match:
+    severity: 'critical'
+  target_match:
+    severity: 'warning'
+  # Apply inhibition if the alertname is the same.
+  equal: ['alertname', 'cluster', 'service']
+
+
+receivers:
+- name: 'team-X-mails'
+  email_configs:
+  # 收件人地址 想发送多个人可以这样写test1@qq.com,test2@qq.com
+  - to: 'yang.lei@belle.com.cn'
+    send_resolved: true
+    html: '{{ template "email.default.html" . }}'
+    headers: 
+      Subject: "[报警触发]测试环境"
+
+- name: 'team-X-pager'
+  email_configs:
+  - to: 'team-X+alerts-critical@example.org'
+  pagerduty_configs:
+  - service_key: <team-X-key>
+
+- name: 'team-Y-mails'
+  email_configs:
+  - to: 'team-Y+alerts@example.org'
+
+- name: 'team-Y-pager'
+  pagerduty_configs:
+  - service_key: <team-Y-key>
+
+- name: 'team-DB-pager'
+  pagerduty_configs:
+  - service_key: <team-DB-key>
+  
+- name: 'team-X-hipchat'
+  hipchat_configs:
+  - auth_token: <auth_token>
+    room_id: 85
+    message_format: html
+    notify: true
+```
+
+prometheus.yml
+
+```yaml
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - '172.20.32.38:9093'
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  - "/etc/prometheus/alert.rules"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          instance: prometheus
+
+  - job_name: 'mysql'
+    scrape_interval: 15s
+    static_configs:
+      - targets:
+        - '172.20.32.38:9104'
+        labels:
+          instance: db1
+
+  - job_name: 'node'
+    scrape_interval: 15s
+    static_configs:
+      - targets:
+        - '172.20.32.38:9100'
+        labels:
+          instance: node1
+```
+
+alert.rules 
+
+```yaml
+groups:
+- name: example   #报警规则的名字
+  rules:
+  # Alert for any instance that is unreachable for >5 minutes.
+  - alert: InstanceDown     #检测job的状态，持续1分钟metrices不能访问会发给altermanager进行报警
+    expr: up == 1
+    for: 1m    #持续时间
+    labels:
+      serverity: page
+      status : yellow
+    annotations:
+      summary: "Instance {{ $labels.instance }} up"
+      description: "{{ $labels.instance }} of job {{ $labels.job }} has been up for more than 1 minutes."
+  - alert: NodeMemoryUsage
+    expr: (node_memory_MemTotal - (node_memory_MemFree+node_memory_Buffers+node_memory_Cached )) / node_memory_MemTotal * 100 > 2
+    for: 1m
+    labels:
+      severity: warning 
+    annotations:
+      summary: "{{$labels.instance}}: High Memory usage detected 可用内存不足"
+      description: "{{$labels.instance}}: Memory usage is above 80% (current value is: {{ $value }}"
+```
 
 #### docker 安装总结
 
@@ -345,7 +681,7 @@ git clone https://github.com/percona/grafana-dashboards.git
 1. 配置监控抽取工具exporter
 2. 配置Prometheus收集exporter传入的监控数据
 3. 配置grafana，并导入合适的监控模版进行监控数据展示
-4. 配置监控告警（后面再深入）
+4. 配置监控告警分为2部，第一步是配置Prometheus告警规则以及alertmanager地址，然后由Prometheus来判断是否需要告警，如需要则发送告警任务给步骤为alertmanager，第二步是启动alertmanager定义告警发送配置，将告警信息发送给指定的接收者。
 
 ### storage参数
 
@@ -395,6 +731,26 @@ git clone https://github.com/percona/grafana-dashboards.git
 [使用Prometheus+Grafana搭建监控系统实践](https://www.linuxidc.com/Linux/2018-01/150354.htm)
 
 [Prometheus+Grafana搭建监控系统](http://blog.csdn.net/hfut_wowo/article/details/78536022)
+
+[Grafana官方监控模版下载](https://grafana.com/dashboards)
+
+[Kubernetes 1.6 部署prometheus和grafana（数据持久）](http://blog.csdn.net/wenwst/article/details/76624019)
+
+[最佳实践 | Prometheus在Kubernetes下的监控实践](http://dockone.io/article/2579)
+
+[alertmanager报警规则详解](https://segmentfault.com/a/1190000008695357)
+
+[Prometheus监控 - Alertmanager报警模块](https://blog.csdn.net/y_xiao_/article/details/50818451)
+
+[使用prometheus自定义监控](https://www.jianshu.com/p/1f05476ebcee)
+
+[使用Prometheus+Grafana监控MySQL实践](http://www.ywnds.com/?p=9656)
+
+[kube-prometheus-operator](https://github.com/coreos/prometheus-operator/tree/master/contrib/kube-prometheus)
+
+[prometheus+alertmanager二进制安装实现简单邮件告警](https://www.cnblogs.com/iiiiher/p/8277040.html)
+
+[k8s-monitoring](https://github.com/arthur0/k8s-monitoring)
 
 ---
 
