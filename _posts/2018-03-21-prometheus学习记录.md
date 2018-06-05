@@ -713,6 +713,7 @@ groups:
 
 进行checkpoint的时间间隔，即对尚未写入到磁盘的内存chunks执行checkpoint操作。
 
+**以上配置只适合老版本，新版本参数已经调整，见参考资料：[prometheus 版本1.7 常用启动参数](http://blog.51cto.com/lee90/1953896)**
 
 ### 参考资料
 
@@ -736,7 +737,7 @@ groups:
 
 [Kubernetes 1.6 部署prometheus和grafana（数据持久）](http://blog.csdn.net/wenwst/article/details/76624019)
 
-[最佳实践 | Prometheus在Kubernetes下的监控实践](http://dockone.io/article/2579)
+[最佳实践Prometheus在Kubernetes下的监控实践](http://dockone.io/article/2579)
 
 [alertmanager报警规则详解](https://segmentfault.com/a/1190000008695357)
 
@@ -751,6 +752,10 @@ groups:
 [prometheus+alertmanager二进制安装实现简单邮件告警](https://www.cnblogs.com/iiiiher/p/8277040.html)
 
 [k8s-monitoring](https://github.com/arthur0/k8s-monitoring)
+
+[prometheus 版本1.7 常用启动参数](http://blog.51cto.com/lee90/1953896)
+
+[prometheus2.0 联邦的配置](http://blog.51cto.com/lee90/2062252)
 
 ---
 

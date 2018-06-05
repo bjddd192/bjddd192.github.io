@@ -157,6 +157,34 @@ Subjects:
   ServiceAccount        kube-dns        kube-system
 ```
 
+---
+
+Kubernetes 通过启动参数--authorization-mode=RBAC.API Overview为API Server启用RBAC。
+
+使用kubeadm初始化的版本的Kubernetes集群，已经默认为API Server开启了RBAC，可以查看Master Node上API Server的静态Pod定义文件：
+
+cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep RBAC
+    - --authorization-mode=RBAC
+
+    RBAC API定义了四个资源对象用于描述RBAC中用户和资源之间的连接权限：
+    
+    Role
+    ClusterRole
+    RoleBinding
+    ClusterRoleBinding
+    
+Role是一系列权限的集合。
+Role是定义在某个Namespace下的资源，在这个具体的Namespace下使用。
+ClusterRole与Role相似，只是ClusterRole是整个集群范围内使用的。
+
+---
+
+
+
+
+
+---
+
 ### 参考资料
 
 [使用RBAC授权](https://kubernetes.io/docs/admin/authorization/rbac/)
