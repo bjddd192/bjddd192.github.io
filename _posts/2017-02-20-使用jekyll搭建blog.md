@@ -189,6 +189,12 @@ Configuration file: D:/11_Github/bjddd192.github.io/_config.yml
 
 这个也非常简单，使用 git commit 提交修改，然后用 git push 将修改推送到 github 服务器，之后访问你的博客公网链接 https://username.github.io ，即可将自己的美文轻松地分享给好友了。
 
+### 自定义域名与实现https
+
+在如 [https://github.com/bjddd192/bjddd192.github.io/settings](https://github.com/bjddd192/bjddd192.github.io/settings) 进行设置即可，里面有官方的说明。
+
+我使用的阿里云的免费证书，并添加 CNAME 重定向到 `www.zorin.xin`，同时在 settings 中开启 https 即可。
+
 ### 参考资料
 
 >[Jekyll和Github搭建个人静态博客](http://pwnny.cn/original/2016/06/26/MakeBlog.html)
