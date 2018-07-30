@@ -8,9 +8,6 @@ tags: lepus
 keywords: lepus mysql mysql监控工具
 ---
 
-* content
-{:toc}
-
 最近迁移了一个数据库监控工具 `天兔(lepus)` 到容器，lepus 是一款国产开源企业级数据库监控系统，支持 MySQL/Oracle/MongoDB/Redis 一站式性能监控，目的让数据库监控更简单。目前最新版本是 v3.8 bata 版本，上一版本为 v3.7 版本。我用这个工具来监控生产环境 `mysql 5.6.19` 版本的数据库（20台）已经有三年时间，还算比较实用了，主要是它的看板功能非常漂亮直观，慢查询语句跟踪与邮件推送功能也挺不错。因为之前部署在虚拟机内，现在虚拟机需要物理化，因此需要进行迁移。我首先想到的肯定是容器化了，因为这个工具安装过程比较麻烦，很容易出错，我之前安装过几次，每次安装都要踩几天坑，容器化以后就可以一劳永逸了，何乐而不为。当然这次容器化的过程也不是那么顺利，依然折腾了我好几天，差点放弃了，不过好在最终还是折腾出来了，以后使用就方便了，同时在这里分享给更多需要这个工具的人，节约大家的宝贵时间。
 
 
@@ -282,4 +279,4 @@ links http://172.20.32.36:40080/index.php/task/send_mysql_slowquery_mail > /dev/
 [天兔官网](http://www.lepus.cc/)    
 [github官方版本](https://hub.docker.com/r/georce/lepus/)
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

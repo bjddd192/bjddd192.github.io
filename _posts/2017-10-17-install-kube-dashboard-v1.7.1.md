@@ -8,9 +8,6 @@ tags: dashboard
 keywords: kubernetes dashboard
 ---
 
-* content
-{:toc}
-
 在部署完heapster后（参考：[install kubernetes-heapster v1.4.0](https://bjddd192.github.io/kubernetes/2017/10/16/install-kube-heapster-v1.4.0.html)），发现看板的监控数据一直上不来，而grafana中能够正常展示监控数据：
 
 ![dashboard](/assets/2017-10-17-install-kube-dashboard-v1.7.1/dashboard.jpg)
@@ -309,4 +306,4 @@ token:		eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2V
 
 ---
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

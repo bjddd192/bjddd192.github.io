@@ -8,9 +8,6 @@ tags: kubeadm-ha
 keywords: kubernetes kubeadm v.176
 ---
 
-* content
-{:toc}
-
 # kubeadm-highavailiability
 
 本文绝大部分内容来源于[cookeem](https://github.com/cookeem)的[kubeadm-ha](https://github.com/cookeem/kubeadm-ha/blob/master/README_CN.md)一文，非常感谢作者的分享，本人在他的分享之上探索基于kubeadm的kubernetes高可用集群v.176部署，因为部署的点比较多，因此有必要详细记录一下，给自己一个备忘，同时也分享给大家，一起完善k8s的学习，有问题可以与我联系交流。
@@ -1701,4 +1698,4 @@ cni-conf.json: |
 
 ---
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

@@ -8,9 +8,6 @@ tags: 分区表
 keywords: mysql mysql5.6 partition range
 ---
 
-* content
-{:toc}
-
 最近由于用到一些大数据的表，需要进行改造为分区表，来提高查询的效率，分区表在 mysql 学习的时候就已经做过一些基本的测试，这里针对常用的范围分区表进行更深层次的问题进行探讨。
 
 
@@ -123,4 +120,4 @@ where p_day <= '20201231';
 
 ---
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

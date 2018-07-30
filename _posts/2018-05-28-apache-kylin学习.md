@@ -8,9 +8,6 @@ tags:
 keywords: 
 ---
 
-* content
-{:toc}
-
 [kylin官网](http://kylin.apache.org/cn/)
 
 Apache Kylin是一个开源的分布式分析引擎。完全由eBay Inc.中国团队开发并贡献至开源社区。提供Hadoop之上的SQL查询接口及多维分析（MOLAP）能力以支持大规模数据能在亚秒内查询巨大的Hive表(十亿百亿的海量数据)。
@@ -340,4 +337,4 @@ Hbase非常适合用来进行大数据的实时查询。Facebook用Hbase进行�
 
 ---
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

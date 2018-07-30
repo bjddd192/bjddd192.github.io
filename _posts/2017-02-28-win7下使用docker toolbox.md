@@ -8,9 +8,6 @@ tags: toolbox
 keywords: docker toolbox
 ---
 
-* content
-{:toc}
-
 &emsp;&emsp;在去年接触 docker 的时候就知道 docker 可以在 windows 下被支持，但一直未去尝试，都是在 linux 服务器上操作学习，现在 docker 也玩的比较熟了，于是想在自己的工作电脑上（windows7）也安装一个 docker 环境，以便不在公司的时候也能做一些练习。安装的过程并不复杂，不过用在 windows 下 docker 被多封装了一层虚拟机，所以没有在 linux 上面来的那么直接，昨天我在安装的过程中也遇到一些问题，在这里也一起记录一下。
 
 
@@ -343,4 +340,4 @@ Started machines may have new IP addresses. You may need to re-run the `docker-m
 
 [在Windows中玩转Docker Toolbox](https://yq.aliyun.com/articles/65076)
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

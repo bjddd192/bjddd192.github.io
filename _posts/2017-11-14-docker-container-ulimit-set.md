@@ -8,9 +8,6 @@ tags: docker WebSocket
 keywords: docker ulimit WebSocket
 ---
 
-* content
-{:toc}
-
 这几天发现部署的一个 WebSocket 应用容器很不稳定，WebSocket 连接老是会无缘无故的批量掉线。跟踪了一下 haproxy 路由转发容器的日志，发现以下报错：
 
 ```sh
@@ -144,4 +141,4 @@ privileged: true
 
 ---
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

@@ -8,9 +8,6 @@ tags: toolbox
 keywords: docker toolbox
 ---
 
-* content
-{:toc}
-
 今天需要使用 win7 上的 `docker toolbox` 加速下载一个镜像，却发现程序启动报错了，如下：
 
 ```sh
@@ -42,4 +39,4 @@ Setting Docker configuration on the remote daemon...
 
 > [Error checking TLS connection](https://github.com/docker/toolbox/issues/346)
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

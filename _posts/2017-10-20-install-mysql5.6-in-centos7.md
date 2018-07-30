@@ -8,9 +8,6 @@ tags: mysql
 keywords: mysql centos mysql5.6 centos7
 ---
 
-* content
-{:toc}
-
 做为兼职DBA，安装 mysql 已经好多次了，记得最初是在 centos6.5 上安装 mysql，到最近玩容器了，经常需要在 centos7 上安装软件，与容器版的 mysql 相比，我觉得数据库还是直接在机器安装更好，一个是我没有网络存储，另外就是在容器内安装不好区分安装目录，都是在一个文件夹，与我的习惯有冲突。这都是些题外话，下面开始分享记录一下安装的整个过程。
 
 
@@ -457,4 +454,4 @@ Executing /sbin/chkconfig mysql on
 
 ---
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

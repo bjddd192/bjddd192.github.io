@@ -8,9 +8,6 @@ tags: jekyll blog
 keywords: jekyll blog
 ---
 
-* content
-{:toc}
-
 ### 初识 jekyll 
 
 使用 jekyll 搭建 blog 已经有一周的时间了，最初的想法源于看见了网友兄弟 **[漠然](https://mritd.me/)** 的 blog，当时觉得非常的惊艳，厚着脸皮 Q 了他，他非常的大方地把 jekyll 推荐给了我，我立马就去查了一些相关资料，感觉这就是我想要的博客工具，经过了好几天的折腾，这款工具终于被我用上手了，再次感谢 **[漠然](https://mritd.me/)** ，真是一个好人。
@@ -216,4 +213,4 @@ Configuration file: D:/11_Github/bjddd192.github.io/_config.yml
 重要的是保持住一颗捣腾不安的心以及对知识的渴望与找寻。 
  
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

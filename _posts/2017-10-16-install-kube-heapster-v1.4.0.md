@@ -8,9 +8,6 @@ tags: heapster
 keywords: kubernetes heapster
 ---
 
-* content
-{:toc}
-
 在我的上篇文章[《kubeadm的kubernetes高可用集群v1.76部署》](https://bjddd192.github.io/kubernetes/2017/09/29/kubeadm-ha-v1.76.html)完成后，我们会很想将整个集群监控起来，[heapster + influxdb + grafana](https://github.com/kubernetes/heapster) 是kubernetes官方推荐的方案。而我在v1.4的k8s集群就已经使用过此方案，正所谓轻车熟路，[官方的教程](https://github.com/kubernetes/heapster/blob/master/docs/influxdb.md)也很简单，不过一代补丁一代神，因为东西比较新，直接按官方文档部署，还是遇到了不少坑。在这里记录一下我的解决方案，给困惑的朋友一些帮助。
 
 
@@ -363,4 +360,4 @@ Network Error: Bad Gateway(502)
 
 ---
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。

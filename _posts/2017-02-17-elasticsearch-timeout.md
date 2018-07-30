@@ -8,9 +8,6 @@ tags: elasticsearch
 keywords: elasticsearch
 ---
 
-* content
-{:toc}
-
 #### 问题描述
 
 这两天，在测试环境（全部为虚拟机）上搭建 K8S 的日志归集服务 EFK ( ElasticSearch + Fluend + Kibana )，在搭建完成以后，在 Kibana 中访问总是报错 Request Timeout after 3000ms，如下图：
@@ -301,4 +298,4 @@ for i in `find /var/lib/docker/containers -name "*.log"`; do cat /dev/null >$i; 
 
 elasticsearch 这款开源的优秀的搜索引擎工具的确值得深入的学习，填补自己在搜索引擎这一块的空白，这篇文章只是一个起点，加油！
 
-**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [ん乖乖龙ん](https://bjddd192.github.io) 所有。
+**转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。
