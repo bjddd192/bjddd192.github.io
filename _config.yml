@@ -1,26 +1,47 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl:
-url: https://mazhuang.org
+# the subpath of your site, e.g. /blog
+baseurl: ""                                   
+# the base hostname & protocol for your site, e.g. http://example.com
+url: https://www.zorin.xin                    
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
+title: Mars丶小石头
+subtitle: "let's face reality，loyalty to an ideal !"
+description: "欢迎来到 Mars丶小石头 的个人博客"
+keywords: Mars丶小石头, 小石头, zorin, bjddd192
+favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
 side_bar_repo_limit: 5
+source_code: https://github.com/bjddd192/bjddd192.github.io
+description_footer: Copyright©2018 Mars丶小石头 版权所有 ! 
 
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: zkh360.com
-organization_url: http://www.zkh360.com
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+author: 阳磊
+organization: Wonhigh
+organization_url: http://www.wonhigh.cn/
+location: Shen Zhen, China
+email: bjddd192@163.com
+github_username: bjddd192
 
 # ---------------- #
 #    Navigation    #
@@ -62,10 +83,12 @@ markdown: kramdown
 kramdown:
     input: GFM
 highlighter: rouge
+# 指定一页有几篇文章
 paginate: 8
 lsi: false
 quiet: false
-excerpt_separator: "\n\n"
+# 指定一个摘要分割符号
+excerpt_separator: "\n\n\n\n"
 permalink: /:year/:month/:day/:title/
 gems:
     - jekyll-github-metadata
@@ -81,7 +104,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: bjddd192/bjddd192.github.io
 
 # ---------------- #
 #      Comments    #
@@ -122,4 +145,4 @@ simple_jekyll_search:
 #    Analytics     #
 # ---------------- #
 google:
-    analytics_id: UA-80669434-1
+    analytics_id: UA-92003445-1
