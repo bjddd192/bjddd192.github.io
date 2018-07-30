@@ -126,7 +126,7 @@ comments_provider: gitalk
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: bjddd192
-    repo: blog_comments
+    repo: bjddd192.github.io
     clientID: b01faa7f70da0f6acc30
     clientSecret: 236d15f86f11b1652b756f633b977e3f88391a48
 # 在使用其它评论组件时可点击显示 Disqus
