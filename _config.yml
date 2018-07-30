@@ -1,98 +1,125 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-title: ん乖乖龙ん
-subtitle: "let's face reality，loyalty to an ideal !"
-description: "欢迎来到 ん乖乖龙ん 的个人博客"
-keywords: bjddd192 ん乖乖龙ん
-favicon: /favicon.ico
+baseurl:
+url: https://mazhuang.org
+date_format: "ordinal"
+title: 码志
+subtitle: "打码改变人生"
+description: "马壮的个人博客"
+keywords: 码志, Zhuang Ma, mzlogin, mazhuang
 timezone: Asia/Shanghai
 encoding: "utf-8"
-source_code: https://github.com/bjddd192/bjddd192.github.io
-description_footer: Copyright©2005-2017 ん乖乖龙ん 版权所有 ! 
-
+side_bar_repo_limit: 5
 
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: 阳磊
-organization: Wonhigh
-organization_url: http://www.wonhigh.cn/
-location: Shen Zhen, China
-email: bjddd192@163.com
-
-
-# ---------------- #
-#      Socials     #
-# ---------------- #
-email: bjddd192@163.com
-github_username:  bjddd192
-# twitter_username: bjddd192
-# facebook_username: bjddd192
-# weibo_username: bjddd192
-# zhihu_username: bjddd192
-# linkedIn_username: bjddd192
-# dribbble_username: bjddd192
-
+author: Zhuang Ma
+organization: zkh360.com
+organization_url: http://www.zkh360.com
+github_username: mzlogin
+location: Wuhan, China
+email: chumpma@gmail.com
 
 # ---------------- #
-#     comments     #
+#    Navigation    #
 # ---------------- #
-# two ways to comment, only choose one, and use your own short name
-# 两种评论插件，选一个就好了，使用自己的 short_name
-duoshuo_shortname: bjddd192
-# disqus_shortname: #bjddd192
+navs:
+  -
+    href: /
+    label: 首页
 
+  -
+    href: /categories/
+    label: 分类
 
-# statistic analysis 统计代码
-# 百度统计 id，将统计代码替换为自己的百度统计id，即
-# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
-# xxxxx字符串
-baidu_tongji_id: 7111a652168a6f6116ab85bbb9e426cc
-google_analytics_id: UA-92003445-1
+#   -
+#     href: /archives/
+#     label: 归档
 
+  -
+    href: /wiki/
+    label: 维基
+
+  -
+    href: /links/
+    label: 链接
+
+  -
+    href: /about/
+    label: 关于
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
 
 # ---------------- #
 #      Jekyll      #
 # ---------------- #
 markdown: kramdown
-highlighter: rouge
 kramdown:
-  input: GFM
-  # syntax_highlighter: rouge
-gems: [jekyll-paginate]
-  
+    input: GFM
+highlighter: rouge
+paginate: 8
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+gems:
+    - jekyll-github-metadata
+    - rouge
+#     - jekyll-html-pipeline
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+#     - jekyll-mentions
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
 
-# port
-# port: 1234
+repository: mzlogin/mzlogin.github.io
 
-  
-# url
-category_dir: category/
-tag_dir: tag/
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, gitment, gitalk
+comments_provider: gitalk
+# !!!重要!!! 请修改下面这些信息为你自己申请的
+# !!!Important!!! Please modify infos below to yours
+# https://disqus.com
+disqus:
+    username: 
+# https://imsun.net/posts/gitment-introduction/
+gitment:
+    owner: mzlogin
+    repo: blog-comments
+    oauth:
+        client_id: d2e1cbbd298958076462
+        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+# https://github.com/gitalk/gitalk#install
+gitalk:
+    owner: mzlogin
+    repo: blog-comments
+    clientID: d2e1cbbd298958076462
+    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+# 在使用其它评论组件时可点击显示 Disqus
+lazy_load_disqus : false
 
-# excerpt
-# 指定一个摘要分割符号
-excerpt_separator: "\n\n\n\n"
-# 指定一页有几篇文章
-paginate: 6
+# ---------------- #
+#      Search      #
+# ---------------- #
+simple_jekyll_search:
+    # 是否支持全文搜索
+    fulltext: false
+    # 最多显示多少条搜索结果
+    limit: 10
 
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+google:
+    analytics_id: UA-80669434-1
