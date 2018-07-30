@@ -30,8 +30,8 @@ favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
 side_bar_repo_limit: 5
-source_code: https://github.com/bjddd192/bjddd192.github.io
-description_footer: Copyright©2018 Mars丶小石头 版权所有 ! 
+# source_code: https://github.com/bjddd192/bjddd192.github.io
+# description_footer: Copyright©2018 Mars丶小石头 版权所有 ! 
 
 # ---------------- #
 #      Author      #
