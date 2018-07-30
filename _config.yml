@@ -114,19 +114,19 @@ comments_provider: gitalk
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
-disqus:
-    username: 
+# disqus:
+#     username: 
 # https://imsun.net/posts/gitment-introduction/
-gitment:
-    owner: bjddd192
-    repo: blog-comments
-    oauth:
-        client_id: 31e4ad5121eef1e33373
-        client_secret: 21c656d5d21d292ce0c2cc9417eb4bd61ef3921e
+# gitment:
+#     owner: bjddd192
+#     repo: bjddd192.github.io
+#     oauth:
+#         client_id: 31e4ad5121eef1e33373
+#         client_secret: 21c656d5d21d292ce0c2cc9417eb4bd61ef3921e
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: bjddd192
-    repo: blog-comments
+    repo: bjddd192.github.io
     clientID: 31e4ad5121eef1e33373
     clientSecret: 21c656d5d21d292ce0c2cc9417eb4bd61ef3921e
 # 在使用其它评论组件时可点击显示 Disqus
