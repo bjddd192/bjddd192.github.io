@@ -119,16 +119,16 @@ disqus:
 # https://imsun.net/posts/gitment-introduction/
 gitment:
     owner: bjddd192
-    repo: blog-comments
+    repo: bjddd192.github.io
     oauth:
-        client_id: 47c86656455204a91e8a
-        client_secret: aac3ae2d9f361ee26cdbdbdccc5d60f704584218
+        client_id: 3a3c6103b2ace1457458
+        client_secret: e00d288f65748b11394414c985297ad02a745661
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: bjddd192
-    repo: blog-comments
-    clientID: 47c86656455204a91e8a
-    clientSecret: aac3ae2d9f361ee26cdbdbdccc5d60f704584218
+    repo: bjddd192.github.io
+    clientID: 3a3c6103b2ace1457458
+    clientSecret: e00d288f65748b11394414c985297ad02a745661
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
