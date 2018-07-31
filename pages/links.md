@@ -8,7 +8,7 @@ menu: 链接
 permalink: /links/
 ---
 
-> 相遇、相识、相知、我们 一起前行！
+> 圣贤是思想的先声；朋友是心灵的希望。
 
 <ul>
 {% for link in site.data.links %}
