@@ -10,7 +10,11 @@ permalink: /links/
 
 > 相遇、相识、相知、我们 一起前行！
 
+<ul>
 {% for link in site.data.links %}
 <!-- * [{{ link.name }}]({{ link.url }}) -->
-<a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+  <li>
+	<a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+  </li>
 {% endfor %}
+</ul>
