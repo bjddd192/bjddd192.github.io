@@ -45,11 +45,6 @@ permalink: /about/
 
 ## 关于本站
 
-
-## 友情链接
-
-[漠然](https://mritd.me/) \| [墨可](https://silencesk.github.io/)\| [Able615](http://www.ttbrook.com/)
-
 ## 联系
 
 {% for website in site.data.social %}

@@ -8,8 +8,9 @@ menu: 链接
 permalink: /links/
 ---
 
-> God made relatives. Thank God we can choose our friends.
+> 相遇、相识、相知、我们 一起前行！
 
 {% for link in site.data.links %}
-* [{{ link.name }}]({{ link.url }})
+<!-- * [{{ link.name }}]({{ link.url }}) -->
+<a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
 {% endfor %}
