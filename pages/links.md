@@ -14,7 +14,9 @@ permalink: /links/
 {% for link in site.data.links %}
 <!-- * [{{ link.name }}]({{ link.url }}) -->
   <li>
-	<a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+  	<p>
+		<a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+	</p>
   </li>
 {% endfor %}
 </ul>
