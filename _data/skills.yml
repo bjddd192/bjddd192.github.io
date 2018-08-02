@@ -1,19 +1,27 @@
-- name: Software Engineer Keywords
+- name: 数据库
   keywords:
-      - Java
-      - C++
-      - Python
-      - Design Patterns
+      - mysql
+      - oracle
+      - db2
 
-- name: Mobile Developer Keywords
+- name: 编程语言
   keywords:
-      - Android
-      - Reverse Engineering
+      - ansible
+      - shell
+      - C#
 
-- name: Windows Developer Keywords
+- name: 容器技术
   keywords:
-      - Win32 SDK
-      - DuiLib
-      - WTL
-      - COM
-      - WinDbg
+      - docker
+      - kubernetes
+      - prometheus
+      
+- name: 大数据
+  keywords:
+      - zookeeper
+      - hadoop
+      - hive
+      - hbase
+      - spark
+      - kylin
+      - impala
