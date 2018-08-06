@@ -33,7 +33,13 @@ recommend: true
 
 ### 其他参考
 
+https://github.com/xoyabc/xoyabc.github.io
+
 https://haishangyanghang.github.io/
 
 https://github.com/hejianchao/hejianchao.github.io
+
+https://github.com/uk0/uk0.github.io
+
+https://github.com/walkman/walkman.github.io
 

@@ -22,7 +22,9 @@
                 {% endfor %}
                 <li><a href="{{ site.url }}{{ site.subscribe_rss }}"><span class="octicon octicon-rss" style="color:orange;"></span></a></li>
             </ul>
-
+            <p>
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+            </p>
         </div>
     </footer>
     <div class="tools-wrapper">
@@ -32,6 +34,7 @@
     <script src="{{ site.url }}/assets/vendor/share.js/dist/js/share.min.js"></script>
     <script src="{{ site.url }}/assets/js/geopattern.js"></script>
     <script src="{{ site.url }}/assets/js/prism.js"></script>
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <link rel="stylesheet" href="{{ site.url }}/assets/css/globals/prism.css">
     <script>
       jQuery(document).ready(function($) {
