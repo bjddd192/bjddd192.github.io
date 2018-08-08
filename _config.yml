@@ -146,3 +146,6 @@ simple_jekyll_search:
 # ---------------- #
 google:
     analytics_id: UA-92003445-1
+    
+baidu:
+    tongji_id: 695eb7b96aca935f972e10e57208552a

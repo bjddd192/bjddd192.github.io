@@ -23,7 +23,7 @@
                 <li><a href="{{ site.url }}{{ site.subscribe_rss }}"><span class="octicon octicon-rss" style="color:orange;"></span></a></li>
             </ul>
             <p>
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+                本站总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;次，本站访客数&nbsp;<span id="busuanzi_value_site_uv"></span>&nbsp;人次，本文总阅读量&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次
             </p>
         </div>
     </footer>
@@ -84,6 +84,20 @@
         ga('send', 'pageview');
 
       </script>
+    </div>
+    {% endif %}
+    {% if site.baidu.tongji_id %}
+    <div style="display:none">
+        <script>
+        // 百度统计代码
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?{{site.baidu_tongji_id}}";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
     </div>
     {% endif %}
 </body>
