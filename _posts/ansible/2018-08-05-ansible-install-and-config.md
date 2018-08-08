@@ -15,12 +15,18 @@ keywords: ansible
 
 ## Mac 安装 ansible
 
+当时百度的，有机会再记录，安装简单。
+
 ## CentOS7 安装 ansible
 
 ```sh
 yum -y install epel-release
 yum -y install ansible
+# 安装完成后检测版本
+ansible --version
 ```
+
+安装非常简单，如果已经有 ansible 工程，拉下代码就能使用了，非常的方便快捷。
 
 ## 参考资料
 
