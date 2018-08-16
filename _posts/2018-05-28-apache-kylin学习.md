@@ -10,6 +10,8 @@ keywords:
 
 [kylin官网](http://kylin.apache.org/cn/)
 
+这篇文章有点乱，初入大数据大门，问题多多，纯粹算个人笔记了。
+
 Apache Kylin是一个开源的分布式分析引擎。完全由eBay Inc.中国团队开发并贡献至开源社区。提供Hadoop之上的SQL查询接口及多维分析（MOLAP）能力以支持大规模数据能在亚秒内查询巨大的Hive表(十亿百亿的海量数据)。
 
 
@@ -80,14 +82,13 @@ derived维度
 
 这类维度的意思是可推导的维度，需要该维度对应的一个或者多个列可以和维度表的主键是一对一的，这种维度可以大大减少cuboid个数
 
-
-
 ### hadoop 安装
 
 [官方下载地址](http://hadoop.apache.org/releases.html)
 
 Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。 Hadoop框架应用工程提供跨计算机集群的分布式存储和计算的环境。 Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。
 
+```sh
 修改主机名
 
 配置hosts
@@ -213,7 +214,7 @@ vim $HADOOP_HOME/sbin/stop-yarn.sh
 
 
 $HADOOP_HOME/sbin/start-yarn.sh
-
+```
 
 #### 问题
 
