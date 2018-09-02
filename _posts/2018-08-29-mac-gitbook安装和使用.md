@@ -189,6 +189,8 @@ Github 仓库地址：https://github.com/bjddd192/declaimer/tree/gh-pages
 
 [GitBook 插件](http://gitbook.zhangjikai.com/plugins.html)
 
+[Gitbook 实用配置及插件介绍](https://www.cnblogs.com/zhangjk1993/p/5066771.html)
+
 ---
 
 **转载**请注明出处，本文采用 [CC4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) 协议授权，版权归 [Mars丶小石头](https://www.zorin.xin) 所有。
