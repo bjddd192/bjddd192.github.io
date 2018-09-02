@@ -35,11 +35,11 @@ comments: false
             <ol class="repo-list">
                 {% for post in paginator.posts %}
                 <li class="repo-list-item">
-                    <h3 class="repo-list-name">
+                    <h2 class="repo-list-name">
                       <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                    </h3>
+                    </h2>
                     <p class="repo-list-description">
-                        {{ post.excerpt | strip_html | strip }}
+                        {{ post.excerpt }}
                     </p>
                     <p class="repo-list-meta">
                         <span class="meta-info">
