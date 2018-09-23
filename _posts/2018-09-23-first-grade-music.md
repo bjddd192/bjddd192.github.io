@@ -13,16 +13,18 @@ keywords: 一年级音乐
 
 
 
-
-### 我今天上学喽
-
-#### 范唱
-
 <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 <style>
 	.demo{width:100%;}
 </style>
+
+## music_01
+
+#### 我今天上学喽
+
+#### 范唱
+
 <div class="demo">
 	<div id="player1">
 		<pre class="aplayer-lrc-content">
@@ -93,7 +95,13 @@ keywords: 一年级音乐
 	ap.init;
 </script>
 
+## music_02
 
+#### 红星闪闪
+
+#### 范唱
+
+#### 伴奏
 
 ---
 
