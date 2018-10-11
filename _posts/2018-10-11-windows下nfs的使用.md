@@ -10,7 +10,7 @@ keywords: windows nfs
 
 最近在研究网络存储，首先是在 centos7 服务器上搭建了一个 nfs 服务，对于 linux 操作系统下挂载使用都没有什么问题。
 
-但某同学希望能在 windows 下使用一下 nfs 共享，原因是常用的 smb 文件共享服务由于漏洞的问题，被公司网管封了端口了，无法正常使用。所以研究了一下在 windows 下如何将 linux 上搭建的 nfs 服务，相对 smb 步骤会繁琐很多。
+但某同学希望能在 windows 下使用一下 nfs 共享，原因是常用的 smb 文件共享服务由于漏洞的问题，被公司网管封了端口了，无法正常使用。所以研究了一下在 windows 下如何使用 linux 上搭建的 nfs 服务，相对使用 smb 步骤会繁琐很多。
 
 
 
@@ -69,9 +69,11 @@ C:\Users\Administrator>umount x:
 
 注册表修改方法：
 
-找到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default`，增加两项：AnonymousUid，AnonymousGid
+找到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default`，
 
-如何重新启动计算机，重新 mount，发现共享目录就可以正常写入了。
+增加两项：AnonymousUid，AnonymousGid
+
+然后重新启动计算机，重新 mount，发现共享目录就可以正常写入了。
 
 ## 解决中文乱码的问题
 
