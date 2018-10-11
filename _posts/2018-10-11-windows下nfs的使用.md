@@ -1,8 +1,8 @@
 ---
 layout: "post"
-title: "Windows下nfs的使用"
+title: "windows下nfs的使用"
 date: "2018-10-11 09:57:08"
-description: Windows下nfs的使用
+description: windows下nfs的使用
 categories: windows
 tags: nfs
 keywords: windows nfs 
