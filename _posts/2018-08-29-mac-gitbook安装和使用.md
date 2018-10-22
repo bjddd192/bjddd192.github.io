@@ -165,6 +165,15 @@ gitbook pdf /Users/yanglei/01_git/github_me/declaimer /Users/yanglei/Downloads/d
 
 这个需要日积月累，大家慢慢体验，有好的方法我会再补充。
 
+### Github 页面使用限制
+
+GitHub Pages 网站受以下使用限制：
+
+- GitHub Pages 源存储库大小限制为 1GB。
+- 发布的 GitHub Pages 网站不能超过 1GB。 
+- GitHub Pages 网站有每月 100GB 的带宽限制。 
+- GitHub Pages 网站限制每小时 10个 版本。
+
 ### 尾声
 
 看完这个文档，希望大家立刻构建一个电子书项目来尝试一下，内容不重要，重要的是理清楚使用的流程。然后就只剩下慢慢享受书写、积累资料的快乐过程了。相信这样的习惯会对你有积极的影响。
