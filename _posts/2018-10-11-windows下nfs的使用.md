@@ -85,7 +85,7 @@ C:\Users\Administrator>umount x:
 
 总结一下，就是要使用 [ms-nfs41-client](https://github.com/cbodley/ms-nfs41-client)，它支持 utf-8 编码。
 
-但我在使用后发现用它挂载后，可以解决字符但问题，又无法向共享目录写入了，上一步修改注册表的行为对它不起作用，后面我的解决方式是在服务端给共享目录 777 的权限，就可以进行写入文件了。
+但我在使用后发现用它挂载后，可以解决字符的问题，但又无法向共享目录写入了，上一步修改注册表的行为对它不起作用，后面我的解决方式是在服务端给共享目录 777 的权限，就可以进行写入文件了。
 
 ## 总结
 
@@ -95,7 +95,11 @@ nfs 在 windows 下的使用还是挺麻烦的，期待未来的 windows 对它�
 
 ## 参考资料
 
-[win7与linux网络共享挂载nfs配置](http://www.codeweblog.com/win7%E4%B8%8Elinux%E7%BD%91%E7%BB%9C%E5%85%B1%E4%BA%AB%E6%8C%82%E8%BD%BDnfs%E9%85%8D%E7%BD%AE/)
+[win7与linux网络共享挂载nfs配置](https://blog.csdn.net/mengfanbo123/article/details/8766438)
+
+[Windows NFS 4.1 Client Instructions](http://www.citi.umich.edu/projects/nfsv4/windows/readme.html)
+
+[解决windows 挂载 nfs 驱动器中 中文乱码问题](https://www.cnblogs.com/xuyaowen/p/windows-nfs-utf8.html)
 
 ---
 
