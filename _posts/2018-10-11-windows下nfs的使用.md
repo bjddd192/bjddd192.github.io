@@ -41,7 +41,7 @@ C:\Users\Administrator>showmount -e 172.20.32.47
 确定权限正常后，我们就可以使用命令进行挂载：
 
 ```cmd
-C:\Users\Administrator>mount 172.20.32.47:/share1 x:
+C:\Users\Administrator>mount -o nolock 172.20.32.47:/share1 x:
 x: 现已成功连接到 172.20.32.47:/share1
 ```
 
